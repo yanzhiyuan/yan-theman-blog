@@ -81,7 +81,7 @@ class App extends React.Component<any,IAppState> {
           flexBasis:'0',
         }}
       >
-        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw'}}>
+        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px'}}>
           detail panel
         </Paper>
       </div>

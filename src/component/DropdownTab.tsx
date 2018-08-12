@@ -18,7 +18,7 @@ export default class DropdownTab extends React.Component<IDropDownTabProps, IDro
     public constructor(props:IDropDownTabProps){
         super(props);
         this.state = {
-            selectedTab: "",
+            selectedTab: '',
         }
     }
 
@@ -29,6 +29,12 @@ export default class DropdownTab extends React.Component<IDropDownTabProps, IDro
                     <Button
                         color="primary"
                         key={'dropdownTab_' + tab}
+                        onClick={()=>{
+                            this.setState({
+                                selectedTab: this.state.selectedTab === tab?'':tab,
+                            })
+                            this.props.toggleTab(tab);
+                        }}
                     >
                         <Typography style={{ fontFamily: 'Cabin Sketch', color: 'white' }} variant="title">
                             {tab}

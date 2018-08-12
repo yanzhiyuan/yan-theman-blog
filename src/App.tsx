@@ -1,19 +1,26 @@
 import * as React from 'react';
 import './App.css';
-
-import logo from './logo.svg';
+import AppBackground from './component/appBackground';
+import 'typeface-cabin-sketch';
+import Typography from '@material-ui/core/Typography';
 
 class App extends React.Component {
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div style={{
+        height:'100vh', 
+        width:'100vw', 
+        color:'white', 
+        backgroundColor:'#222', 
+        display:'flex',
+        flexDirection:'column'  
+      }}>
+       <AppBackground/>      
+       <div style={{flex:1, textAlign:'center'}}>
+        <Typography style={{fontFamily:'Cabin Sketch', color:'white'}} variant="display4">
+          Yan, Zhi Yuan
+        </Typography>
+       </div>
       </div>
     );
   }

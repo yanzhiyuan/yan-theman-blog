@@ -4,15 +4,15 @@ import AppBackground from './component/AppBackground';
 import 'typeface-cabin-sketch';
 import Typography from '@material-ui/core/Typography';
 import DropdownTab from './component/DropdownTab';
-import {Button, createMuiTheme, Paper } from '../node_modules/@material-ui/core';
+import {Button, Paper, Collapse } from '../node_modules/@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
-const theme = createMuiTheme({
-  palette: {
-    type: 'dark',
-  }
-});
+// const theme = createMuiTheme({
+//   palette: {
+//     type: 'dark',
+//   }
+// });
 
 interface IAppState {
   selectedTab: string;
@@ -69,11 +69,16 @@ class App extends React.Component<any,IAppState> {
           }}
         />
       </div>
-      <div
+      <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', justifyContent:'center'}}>
+      <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'70vh'}}>
+          detail panel
+        </Paper>
+      </Collapse>
+      {/* <div
         style={{
           transition: theme.transitions.create(['flex-grow'], {
             easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.leavingScreen,
+            duration: theme.transitions.duration.enteringScreen,
           }),
           display: 'flex',
           justifyContent: 'center',
@@ -81,10 +86,8 @@ class App extends React.Component<any,IAppState> {
           flexBasis:'0',
         }}
       >
-        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px'}}>
-          detail panel
-        </Paper>
-      </div>
+
+      </div> */}
 
       </div>
     );

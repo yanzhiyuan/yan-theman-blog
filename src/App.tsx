@@ -4,12 +4,28 @@ import AppBackground from './component/AppBackground';
 import 'typeface-cabin-sketch';
 import Typography from '@material-ui/core/Typography';
 import DropdownTab from './component/DropdownTab';
-import {Button } from '../node_modules/@material-ui/core';
+import {Button, createMuiTheme, Paper } from '../node_modules/@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 
+const theme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  }
+});
 
-class App extends React.Component {
+interface IAppState {
+  selectedTab: string;
+}
+
+class App extends React.Component<any,IAppState> {
+  public constructor(props:any){
+    super(props);
+    this.state = {
+      selectedTab: '',
+    }
+  }
+
   public render() {
     return (
       <div style={{
@@ -46,9 +62,30 @@ class App extends React.Component {
       <div>
         <DropdownTab
           tabs={['Tech', 'Experience', 'etc']}
-          toggleTab={(tab:string)=>{if(tab){return;}}}
+          toggleTab={(tab:string)=>{
+            this.setState({
+              selectedTab: this.state.selectedTab === tab? '':tab,
+            });
+          }}
         />
       </div>
+      <div
+        style={{
+          transition: theme.transitions.create(['flex-grow'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen,
+          }),
+          display: 'flex',
+          justifyContent: 'center',
+          flexGrow: this.state.selectedTab.length > 0 ? 0.8 : 0.001,
+          flexBasis:'0',
+        }}
+      >
+        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw'}}>
+          detail panel
+        </Paper>
+      </div>
+
       </div>
     );
   }

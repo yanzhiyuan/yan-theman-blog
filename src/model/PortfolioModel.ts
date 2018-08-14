@@ -1,10 +1,10 @@
 
 export class TechSkill {
     public name:string;
-    public iconPath:string;
+    public iconName:string;
 
     constructor(skill:any){
         this.name = skill["name"];
-        this.iconPath = skill["iconPath"];
+        this.iconName = skill["iconName"];
     }
 }

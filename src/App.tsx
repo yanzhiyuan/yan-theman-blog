@@ -7,6 +7,8 @@ import DropdownTab from './component/DropdownTab';
 import {Button, Paper, Collapse } from '../node_modules/@material-ui/core';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import * as model from './model/PortfolioModel';
+import ChipList from './component/ChipList';
 
 // const theme = createMuiTheme({
 //   palette: {
@@ -19,11 +21,18 @@ interface IAppState {
 }
 
 class App extends React.Component<any,IAppState> {
+  private techSkill:Map<string, model.TechSkill[]>;
+
   public constructor(props:any){
     super(props);
     this.state = {
       selectedTab: '',
     }
+
+    this.techSkill = new Map<string, model.TechSkill[]>();
+    this.techSkill.set('Database', [
+      {name:'MongoDB', iconName:'mongoPng'}
+    ]);
   }
 
   public render() {
@@ -70,25 +79,14 @@ class App extends React.Component<any,IAppState> {
         />
       </div>
       <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', justifyContent:'center'}}>
-      <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'70vh'}}>
-          detail panel
+        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'70vh'}}>
+          {this.state.selectedTab === 'Tech' && 
+            <ChipList
+              chipList={this.techSkill}
+            />
+          }
         </Paper>
       </Collapse>
-      {/* <div
-        style={{
-          transition: theme.transitions.create(['flex-grow'], {
-            easing: theme.transitions.easing.sharp,
-            duration: theme.transitions.duration.enteringScreen,
-          }),
-          display: 'flex',
-          justifyContent: 'center',
-          flexGrow: this.state.selectedTab.length > 0 ? 0.8 : 0.001,
-          flexBasis:'0',
-        }}
-      >
-
-      </div> */}
-
       </div>
     );
   }

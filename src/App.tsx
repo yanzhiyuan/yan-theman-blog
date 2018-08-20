@@ -49,6 +49,7 @@ class App extends React.Component<any,IAppState> {
       {name:'iOS / Cocoa Touch', iconName:'ios'},
       {name:'Objective-C', iconName:'objectiveC'},
       {name:'Swift', iconName:'swift'},
+      {name:'Angular', iconName:'angular'},
       {name:'Go lang', iconName:'goLang'},
       {name:'Sql Server', iconName:'sqlServer'},
       {name:'Oracle DB', iconName:'oracle'},
@@ -86,9 +87,12 @@ class App extends React.Component<any,IAppState> {
         <Typography style={{fontFamily:'Cabin Sketch'}} variant="display4">
           Yan, Zhi Yuan
         </Typography>
-        <Typography style={{textAlign:'center'}} variant="body1">
-          Hi, my name is Yan. blah blah blah blah
+        <div style={{display:'flex', justifyContent:'center', padding:'24px'}}>
+        <Typography style={{textAlign:'center', width:'50%'}} variant="subheading">
+          Enthusiastic full stack software engineer, 12 years hand on experience in software development 
+          and 7 years experince in Financial Sector. I am currently working and living in Hong Kong. 
         </Typography>
+        </div>
       </div>
       <div>
         <DropdownTab
@@ -111,25 +115,25 @@ class App extends React.Component<any,IAppState> {
             this.state.selectedTab === 'Expertise' &&
             <div style={{paddingTop:'24px'}}>
               <ul>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Chartered Financial Analyst (CFA)
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Cash Equity Algorithm Trading, APAC Markets
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Buy Side Portfolio Management Tools 
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Investmnet Risk Management Tools
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Equity Valuation Models and Micro Market Structure
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}>
                   Anti Money Laundry (AML) and Anti Fraud system for Financial Insititue
                 </li>
-                <li>
+                <li style={{paddingTop:'16px'}}> 
                   Developmnet Methodologies: DevOps, Agile, Test-Driven  
                 </li>
               </ul>

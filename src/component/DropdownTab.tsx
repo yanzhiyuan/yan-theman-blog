@@ -36,14 +36,14 @@ export default class DropdownTab extends React.Component<IDropDownTabProps, IDro
                             this.props.toggleTab(tab);
                         }}
                     >
-                        <Typography style={{ fontFamily: 'Cabin Sketch', color: 'white' }} variant="title">
+                        <Typography style={{ fontFamily: 'Cabin Sketch'}} variant="title">
                             {tab}
                         </Typography>
                         {tab === this.state.selectedTab &&
-                            <ExpandLessIcon style={{color:'white'}}/>
+                            <ExpandLessIcon />
                         }
                         {tab !== this.state.selectedTab &&
-                            <ExpandMoreIcon style={{color:'white'}}/>
+                            <ExpandMoreIcon />
                         }
                     </Button>
                 )})

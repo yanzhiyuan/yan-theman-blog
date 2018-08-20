@@ -15,6 +15,7 @@ import swift from '../asset/swift.png';
 import typescript from '../asset/typescript.png';
 import cpp from '../asset/cpp.png';
 import ios from '../asset/ios.png';
+import zeromq from '../asset/zeromq.png';
 
 interface IChipListProps{
     chipList: Map<string, model.TechSkill[]>;
@@ -35,6 +36,7 @@ const imgs = {
     typescript,
     cpp,
     ios,
+    zeromq,
 }
 
 export default class ChipList extends React.Component<IChipListProps>{
@@ -56,7 +58,7 @@ export default class ChipList extends React.Component<IChipListProps>{
                 (
                     <ListItem key={'list_'+key} style={{display:'flex', flexDirection:'column', alignItems:'flex-start'}}>
                     <div>
-                    <Typography variant="title" >
+                    <Typography style={{fontFamily:'Cabin Sketch'}} variant="title" >
                     {key}
                     </Typography>
                     </div>

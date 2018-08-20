@@ -34,25 +34,25 @@ class App extends React.Component<any,IAppState> {
     }
 
     this.techSkill = new Map<string, model.TechSkill[]>();
-    this.techSkill.set('Database', [
-      {name:'MongoDB', iconName:'mongoPng'},
-      {name:'Sql Server', iconName:'sqlServer'},
-      {name:'Oracle', iconName:'oracle'}
-    ]);
-    this.techSkill.set('Langurage', [
+    this.techSkill.set('What I am working with now', [
       {name:'C#', iconName:'cSharp'},
       {name:'TypeScript', iconName:'typescript'},
       {name:'C++', iconName:'cpp'},
-      {name:'Objective-C', iconName:'objectiveC'},
-      {name:'Swift', iconName:'swift'},
-      {name:'Go lang', iconName:'goLang'},
-      {name:'R', iconName:'R'}
-    ]);
-    this.techSkill.set('Framework', [
       {name:'Dot Net Core', iconName:'dotNetCore'},
       {name:'.Net Framework', iconName:'dotNet'},
       {name:'React', iconName:'react'},
+      {name:'MongoDB', iconName:'mongoPng'},
+      {name:'ZeroMQ', iconName:'zeromq'}
+
+    ]);
+    this.techSkill.set('What I have been used before', [
       {name:'iOS / Cocoa Touch', iconName:'ios'},
+      {name:'Objective-C', iconName:'objectiveC'},
+      {name:'Swift', iconName:'swift'},
+      {name:'Go lang', iconName:'goLang'},
+      {name:'Sql Server', iconName:'sqlServer'},
+      {name:'Oracle DB', iconName:'oracle'},
+      {name:'R', iconName:'R'}
     ]);
   }
 
@@ -92,7 +92,7 @@ class App extends React.Component<any,IAppState> {
       </div>
       <div>
         <DropdownTab
-          tabs={['Tech', 'Experience', 'etc']}
+          tabs={['Technical Skill', 'Expertise', 'etc']}
           toggleTab={(tab:string)=>{
             this.setState({
               selectedTab: this.state.selectedTab === tab? '':tab,
@@ -102,10 +102,38 @@ class App extends React.Component<any,IAppState> {
       </div>
       <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', justifyContent:'center'}}>
         <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'70vh'}}>
-          {this.state.selectedTab === 'Tech' && 
+          {this.state.selectedTab === 'Technical Skill' && 
             <ChipList
               chipList={this.techSkill}
             />
+          }
+          {
+            this.state.selectedTab === 'Expertise' &&
+            <div style={{paddingTop:'24px'}}>
+              <ul>
+                <li>
+                  Chartered Financial Analyst (CFA)
+                </li>
+                <li>
+                  Cash Equity Algorithm Trading, APAC Markets
+                </li>
+                <li>
+                  Buy Side Portfolio Management Tools 
+                </li>
+                <li>
+                  Investmnet Risk Management Tools
+                </li>
+                <li>
+                  Equity Valuation Models and Micro Market Structure
+                </li>
+                <li>
+                  Anti Money Laundry (AML) and Anti Fraud system for Financial Insititue
+                </li>
+                <li>
+                  Developmnet Methodologies: DevOps, Agile, Test-Driven  
+                </li>
+              </ul>
+            </div>
           }
         </Paper>
       </Collapse>

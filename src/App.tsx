@@ -5,7 +5,7 @@ import 'typeface-cabin-sketch';
 import Typography from '@material-ui/core/Typography';
 import DropdownTab from './component/DropdownTab';
 import {Button, Paper, Collapse, createMuiTheme, MuiThemeProvider } from '../node_modules/@material-ui/core';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
+// import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 import * as model from './model/PortfolioModel';
 import ChipList from './component/ChipList';
@@ -42,8 +42,8 @@ class App extends React.Component<any,IAppState> {
       {name:'.Net Framework', iconName:'dotNet'},
       {name:'React', iconName:'react'},
       {name:'MongoDB', iconName:'mongoPng'},
-      {name:'ZeroMQ', iconName:'zeromq'}
-
+      {name:'ZeroMQ', iconName:'zeromq'},
+      {name:'Jenkins', iconName:'jenkins'}
     ]);
     this.techSkill.set('What I have been used before', [
       {name:'iOS / Cocoa Touch', iconName:'ios'},
@@ -71,13 +71,21 @@ class App extends React.Component<any,IAppState> {
        <AppBackground/>   
        <div style={{textAlign:'center'}}>
        <div style={{display:'flex', justifyContent:'flex-end'}}>
-         <Button>
+         {/* <Button>
           <Typography style={{fontFamily:'Cabin Sketch'}} variant="button">
             Contact
           </Typography>
            <MailOutlineIcon />
-         </Button>
-         <Button>
+         </Button> */}
+         <Button
+          onClick={()=>{
+            let link = document.createElement('a');
+            link.href = '/resume_Yan.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+         >
           <Typography style={{fontFamily:'Cabin Sketch'}} variant="button">
             CV
           </Typography>
@@ -96,7 +104,7 @@ class App extends React.Component<any,IAppState> {
       </div>
       <div>
         <DropdownTab
-          tabs={['Technical Skill', 'Expertise', 'etc']}
+          tabs={['Technical Skill', 'Expertise', 'What Else']}
           toggleTab={(tab:string)=>{
             this.setState({
               selectedTab: this.state.selectedTab === tab? '':tab,
@@ -105,7 +113,7 @@ class App extends React.Component<any,IAppState> {
         />
       </div>
       <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', justifyContent:'center'}}>
-        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'70vh'}}>
+        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'40vh'}}>
           {this.state.selectedTab === 'Technical Skill' && 
             <ChipList
               chipList={this.techSkill}
@@ -138,6 +146,27 @@ class App extends React.Component<any,IAppState> {
                 </li>
               </ul>
             </div>
+          }
+          {
+            
+              this.state.selectedTab === 'What Else' &&
+              <div style={{paddingTop:'24px'}}>
+                <ul>
+                  <li style={{paddingTop:'16px'}}>
+                    I am a dragon boat paddlers
+                  </li>
+                  <li style={{paddingTop:'16px'}}>
+                    I also like Jogging. Last year my best Half Marathon record was 1:49:05 and best 10km was 49:44 
+                  </li>
+                  <li style={{paddingTop:'16px'}}>
+                    I play video games, Civilization, X-COM, FIFA and Clash Royale.  
+                  </li>
+                  <li style={{paddingTop:'16px'}}>
+                    I like classical music, my faviourite composer are Mozart and Brahms. 
+                  </li>            
+                </ul>
+              </div>
+            
           }
         </Paper>
       </Collapse>

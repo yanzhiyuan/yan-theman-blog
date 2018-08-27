@@ -17,6 +17,7 @@ import cpp from '../asset/cpp.png';
 import ios from '../asset/ios.png';
 import zeromq from '../asset/zeromq.png';
 import angular from '../asset/angular.jpg';
+import jenkins from '../asset/jenkins.png';
 
 interface IChipListProps{
     chipList: Map<string, model.TechSkill[]>;
@@ -39,6 +40,7 @@ const imgs = {
     ios,
     zeromq,
     angular,
+    jenkins,
 }
 
 export default class ChipList extends React.Component<IChipListProps>{

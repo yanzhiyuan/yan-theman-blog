@@ -24,7 +24,7 @@ export default class DropdownTab extends React.Component<IDropDownTabProps, IDro
 
     public render(){
         return(
-            <div style={{display:'flex', justifyContent:'center'}}>
+            <div style={{display:'flex', justifyContent:'center', flex:'1'}}>
                 {this.props.tabs.map(tab=>{return (
                     <Button
                         color="primary"

@@ -61,15 +61,16 @@ class App extends React.Component<any,IAppState> {
     return (
       <MuiThemeProvider theme={theme}>
       <div style={{
-        height:'100vh', 
+        height:'100%', 
         width:'100vw', 
         color:'white', 
-        backgroundColor:'#222', 
         display:'flex',
-        flexDirection:'column'  
+        flexDirection:'column',  
+        backgroundColor:'#222',
+        overflowX:'auto',
+        textAlign:'center'
       }}>
        <AppBackground/>   
-       <div style={{textAlign:'center'}}>
        <div style={{display:'flex', justifyContent:'flex-end'}}>
          {/* <Button>
           <Typography style={{fontFamily:'Cabin Sketch'}} variant="button">
@@ -92,17 +93,18 @@ class App extends React.Component<any,IAppState> {
            <FormatListBulletedIcon/>
          </Button>
        </div>   
-        <Typography style={{fontFamily:'Cabin Sketch'}} variant="display4">
+       <div style={{display:'flex', flexDirection:'column'}}>
+        <Typography style={{fontFamily:'Cabin Sketch', flex:'1'}} variant="display4">
           Yan, Zhi Yuan
         </Typography>
+        </div>
         <div style={{display:'flex', justifyContent:'center', padding:'24px'}}>
-        <Typography style={{textAlign:'center', width:'50%'}} variant="subheading">
+        <Typography style={{textAlign:'center', width:'70%', flex:'1'}} variant="subheading">
           Enthusiastic full stack software engineer, 12 years hand on experience in software development 
           and 7 years experince in Financial Sector. I am currently working and living in Hong Kong. 
         </Typography>
         </div>
-      </div>
-      <div>
+      <div style={{display:'flex'}}>
         <DropdownTab
           tabs={['Technical Skill', 'Expertise', 'What Else']}
           toggleTab={(tab:string)=>{
@@ -112,8 +114,9 @@ class App extends React.Component<any,IAppState> {
           }}
         />
       </div>
-      <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', justifyContent:'center'}}>
-        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', height:'40vh'}}>
+      <div style={{display:'flex'}}>
+      <Collapse in={this.state.selectedTab.length > 0} style={{display:'flex', flex:'1', justifyContent:'center'}}>
+        <Paper style={{background:'rgba(0,0,0,0.5)', width:'70vw', marginBottom:'20px', flex:'1', display:'flex'}}>
           {this.state.selectedTab === 'Technical Skill' && 
             <ChipList
               chipList={this.techSkill}
@@ -121,7 +124,7 @@ class App extends React.Component<any,IAppState> {
           }
           {
             this.state.selectedTab === 'Expertise' &&
-            <div style={{paddingTop:'24px'}}>
+            <div style={{paddingTop:'24px', paddingBottom:'24px', textAlign:'left', flex:'1'}}>
               <ul>
                 <li style={{paddingTop:'16px'}}>
                   Chartered Financial Analyst (CFA)
@@ -150,7 +153,7 @@ class App extends React.Component<any,IAppState> {
           {
             
               this.state.selectedTab === 'What Else' &&
-              <div style={{paddingTop:'24px'}}>
+              <div style={{paddingTop:'24px', paddingBottom:'24px', textAlign:'left', flex:'1'}}>
                 <ul>
                   <li style={{paddingTop:'16px'}}>
                     I am a dragon boat paddlers
@@ -171,6 +174,8 @@ class App extends React.Component<any,IAppState> {
         </Paper>
       </Collapse>
       </div>
+      </div>
+          
       </MuiThemeProvider>
     );
   }

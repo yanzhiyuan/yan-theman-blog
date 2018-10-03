@@ -66,7 +66,6 @@ class App extends React.Component<any,IAppState> {
         color:'white', 
         display:'flex',
         flexDirection:'column',  
-        backgroundColor:'#222',
         overflowX:'auto',
         textAlign:'center'
       }}>

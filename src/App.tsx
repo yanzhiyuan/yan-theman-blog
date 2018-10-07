@@ -61,12 +61,11 @@ class App extends React.Component<any,IAppState> {
     return (
       <MuiThemeProvider theme={theme}>
       <div style={{
-        height:'100%', 
+        height:'100vh', 
         width:'100vw', 
         color:'white', 
         display:'flex',
         flexDirection:'column',  
-        overflowX:'auto',
         textAlign:'center'
       }}>
        <AppBackground/>   
@@ -92,6 +91,7 @@ class App extends React.Component<any,IAppState> {
            <FormatListBulletedIcon/>
          </Button>
        </div>   
+       <div style={{height:'100%', overflow:'auto'}}>
        <div style={{display:'flex', flexDirection:'column'}}>
         <Typography style={{fontFamily:'Cabin Sketch', flex:'1'}} variant="display4">
           Yan, Zhi Yuan
@@ -172,6 +172,7 @@ class App extends React.Component<any,IAppState> {
           }
         </Paper>
       </Collapse>
+      </div>
       </div>
       </div>
           

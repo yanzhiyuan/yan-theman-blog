@@ -10,8 +10,10 @@ export default class AppBackground extends React.Component{
     public render(){
         return(
             <Particles
-                style={{width:'100%', height:'100%', left:'0', top:'0', position:'absolute'}}
-                params={{particles: {number:{value:80}}}}
+                style={{width:'100%', height:'100%', left:'0', top:'0', position:'absolute', background:'#222',
+                zIndex:-1
+            }}
+                params={{particles: {number:{value:50}}}}
             />
         );
     }
